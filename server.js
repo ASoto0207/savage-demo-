@@ -8,7 +8,7 @@ var db, collection;
 const url = "mongodb+srv://demo:demo@cluster0-q2ojb.mongodb.net/test?retryWrites=true";
 const dbName = "demo";
 
-app.listen(3000, () => {
+app.listen(3300, () => {
     MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
         if(error) {
             throw error;
@@ -53,7 +53,7 @@ app.put('/messages', (req, res) => {
   })
 })
 
-app.put('/messages/thumbDown', (req, res) => {
+app.put('/thumbDown', (req, res) => {
   db.collection('messages')
   .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
     $set: {
